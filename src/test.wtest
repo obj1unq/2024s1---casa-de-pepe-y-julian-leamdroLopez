@@ -1,33 +1,28 @@
 import casa.*
 
-
 test "rompa algo de 1000 pesos de la casa.
       Tiene víveres suficientes, Hay que hacer reparaciones, No está en orden" {
-
-    casaDePepeYJulian.sumarReparaciones(1000)
+	casaDePepeYJulian.sumarReparaciones(1000)
 	assert.that(casaDePepeYJulian.hayViveres())
 	assert.that(casaDePepeYJulian.hayReparaciones())
 	assert.that(not casaDePepeYJulian.hayOrden())
-
 }
 
 test "20 pesos de costo por operación, se deposita 1000 pesos, saldo 980 pesos." {
-	
 	cuentaGastos.costoOperacion(20)
 	cuentaGastos.depositar(1000)
 	assert.equals(980, cuentaGastos.saldo())
 }
 
 test "primaria con gastos 50 costo de operación, secundaria cuenta corriente,500 saldo.
-      Se depositan 100 pesos, se extraen 200 pesos, saldo con gastos 50 pesos, corriente 300 pesos, combindada 350 pesos"{
-      	
-      	cuentaCombinada.cuentaPrimaria(cuentaGastos)
-      	cuentaCombinada.cuentaSecundaria(cuentaCorriente)
-      	cuentaGastos.costoOperacion(50)
-      	cuentaCorriente.saldo(500)
-      	cuentaCombinada.depositar(100)
-      	cuentaCombinada.extraer(200)
-      	assert.equals(50, cuentaGastos.saldo())
-      	assert.equals(300, cuentaCorriente.saldo())
-      	assert.equals(350, cuentaCombinada.saldo())
-      }
+      Se depositan 100 pesos, se extraen 200 pesos, saldo con gastos 50 pesos, corriente 300 pesos, combindada 350 pesos" {
+	cuentaCombinada.cuentaPrimaria(cuentaGastos)
+	cuentaCombinada.cuentaSecundaria(cuentaCorriente)
+	cuentaGastos.costoOperacion(50)
+	cuentaCorriente.saldo(500)
+	cuentaCombinada.depositar(100)
+	cuentaCombinada.extraer(200)
+	assert.equals(50, cuentaGastos.saldo())
+	assert.equals(300, cuentaCorriente.saldo())
+	assert.equals(350, cuentaCombinada.saldo())
+}

@@ -20,6 +20,10 @@ object casaDePepeYJulian {
 		return self.hayViveres() and not self.hayReparaciones()
 	}
 
+	method gastar(cantidad) {
+		cuenta.extraer(cantidad)
+	}
+
 }
 
 object cuentaCorriente {
